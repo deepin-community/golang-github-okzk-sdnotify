@@ -1,4 +1,8 @@
 #!/usr/bin/make -f
 
+# We want to ship only the library packages themselves,
+# not the accompanying example binaries.
+export DH_GOLANG_EXCLUDES := sample
+
 %:
-	dh $@
+	dh $@ --buildsystem=golang --with=golang
